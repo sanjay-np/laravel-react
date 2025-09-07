@@ -1,4 +1,3 @@
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -21,7 +20,9 @@ const Index = () => {
 
     const isSubmitting = form.formState.isSubmitting
 
-    const onSubmit = () => { }
+    const onSubmit = () => {
+        //
+    }
 
     return (
         <div className="flex min-h-screen w-full items-stretch bg-white">
@@ -43,7 +44,9 @@ const Index = () => {
                                             name="email"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Email address</FormLabel>
+                                                    <div className="flex">
+                                                        <FormLabel>Email address</FormLabel>
+                                                    </div>
                                                     <FormControl>
                                                         <Input
                                                             placeholder="user@example.com"
@@ -54,6 +57,10 @@ const Index = () => {
                                                                 }
                                                             )}
                                                             {...field}
+                                                            iconProps={{
+                                                                icon: "User2Icon",
+                                                                iconPositon: "left"
+                                                            }}
                                                         />
                                                     </FormControl>
                                                     <FormMessage />
@@ -82,6 +89,10 @@ const Index = () => {
                                                                 }
                                                             )}
                                                             {...field}
+                                                            iconProps={{
+                                                                icon: "LockIcon",
+                                                                iconPositon: "left"
+                                                            }}
                                                         />
                                                     </FormControl>
                                                     <FormMessage />
@@ -103,7 +114,6 @@ const Index = () => {
                                             <Link to={"#"} className="underline-offset-4"> Sign up </Link>
                                         </div>
                                     </form>
-
                                 </Form>
                             </div>
                         </div>

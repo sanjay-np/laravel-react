@@ -1,19 +1,42 @@
 import * as React from "react"
-
 import { cn } from "@/lib/utils"
+import * as LucideIcons from 'lucide-react';
+import { Icon } from "./icon";
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-    ({ className, type, ...props }, ref) => {
+type InputProps = React.ComponentProps<"input"> & {
+    iconProps: {
+        icon?: keyof typeof LucideIcons;
+        iconPositon?: "left" | "right";
+        iconContainerProps?: React.HTMLAttributes<HTMLDivElement>;
+    }
+}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+    ({ className, type, iconProps = {}, ...props }, ref) => {
         return (
-            <input
-                type={type}
-                className={cn(
-                    "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-                    className
+            <div className="relative w-full flex items-center gap-1.5 justify-start border rounded-sm">
+                {iconProps.icon && iconProps.iconPositon === "left" && (
+                    <div className="inset-y-0 flex items-center pl-3 pointer-events-none">
+                        <Icon name={iconProps.icon} size={16} />
+                    </div>
                 )}
-                ref={ref}
-                {...props}
-            />
+
+                <input
+                    type={type}
+                    className={cn(
+                        "h-10 w-full focus:ring-0 focus:outline-0",
+                        className
+                    )}
+                    ref={ref}
+                    {...props}
+                />
+
+                {iconProps.icon && iconProps.iconPositon === "right" && (
+                    <div className="inset-y-0 flex items-center pl-3 pointer-events-none">
+                        <Icon name={iconProps.icon} size={16} />
+                    </div>
+                )}
+            </div>
         )
     }
 )
