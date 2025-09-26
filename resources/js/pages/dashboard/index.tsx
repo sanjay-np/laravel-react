@@ -1,12 +1,11 @@
-import { Layout } from '@/components/layout'
+import AuthLayout from "@/components/layout/auth"
+
 
 const Dashboard = () => {
     return (
-        <Layout>
-            <div>
-                dashboard
-            </div>
-        </Layout>
+        <AuthLayout>
+            <div></div>
+        </AuthLayout>
     )
 }
 
