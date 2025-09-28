@@ -1,16 +1,28 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signInSchema, typeSignInSchema } from "@/data/validator";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage
+} from "@/components/ui/form";
 import Link from "@/components/link";
-import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
+
+import { cn } from "@/lib/utils";
+
+import { signInSchema } from "@/data/validator";
+import { typeLoginRequestData, typeLoginResponseData } from "@/data/types/generated";
 
 const Index = () => {
 
-    const form = useForm<typeSignInSchema>({
+    const form = useForm<typeLoginRequestData>({
         resolver: zodResolver(signInSchema),
         defaultValues: {
             email: "",
@@ -20,8 +32,19 @@ const Index = () => {
 
     const isSubmitting = form.formState.isSubmitting
 
-    const onSubmit = () => {
-        //
+    const onSubmit = async () => {
+        try {
+            const requestData: typeLoginRequestData = form.getValues();
+            const response = await axios.post<typeLoginResponseData>('/api/login', requestData)
+            const res = response.data;
+            console.log(res)
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.error("Axios error:", error.response?.data);
+            } else {
+                console.error("Unexpected error:", error);
+            }
+        }
     }
 
     return (
