@@ -3,19 +3,15 @@ import {
     SidebarProvider,
     SidebarTrigger
 } from "@/components/ui/sidebar"
-import { AppSidebar } from "./app-sidebar"
 import { Separator } from "@/components/ui/separator"
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator
-} from "@/components/ui/breadcrumb"
+
+import { AppSidebar } from "./app-sidebar"
+import { TBreadcrumbItem } from "@/data/types"
+import { AppBreadcrumb } from "./app-breadcrumb"
 
 type Props = {
-    children: React.ReactNode
+    children: React.ReactNode,
+    breadCrumbItems?: TBreadcrumbItem[]
 }
 
 const AuthLayout = ({ children }: Props) => {
@@ -30,19 +26,7 @@ const AuthLayout = ({ children }: Props) => {
                             orientation="vertical"
                             className="mr-2 data-[orientation=vertical]:h-4"
                         />
-                        <Breadcrumb>
-                            <BreadcrumbList>
-                                <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#">
-                                        Building Your Application
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                                </BreadcrumbItem>
-                            </BreadcrumbList>
-                        </Breadcrumb>
+                        <AppBreadcrumb />
                     </div>
                 </header>
                 <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

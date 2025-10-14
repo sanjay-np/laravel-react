@@ -1,7 +1,7 @@
 import AuthLayout from "@/components/layout/auth"
 
-
 const HCPClient = () => {
+
     return (
         <AuthLayout>
             <div>

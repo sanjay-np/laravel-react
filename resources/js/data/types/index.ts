@@ -1,4 +1,3 @@
-
 import * as LucideIcons from 'lucide-react';
 
 export type TSubNavWithChildren = {
@@ -32,3 +31,8 @@ export type TNavWithoutChildren = {
 };
 
 export type TMainNav = TNavWithChildren | TNavWithoutChildren;
+
+export type TBreadcrumbItem = {
+    label: string;
+    url?: string;
+};
