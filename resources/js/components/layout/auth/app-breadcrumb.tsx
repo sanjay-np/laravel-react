@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
     Breadcrumb,
@@ -25,23 +25,25 @@ export const AppBreadcrumb: React.FC = () => {
                     const isLast = idx === trail.length - 1;
 
                     return (
-                        <BreadcrumbItem key={item.title}>
-                            <BreadcrumbLink asChild={!isLast}>
-                                {isLast ? (
-                                    <span className="inline-flex items-center gap-1 font-medium text-foreground">
-                                        {item.title}
-                                    </span>
-                                ) : (
-                                    <Link
-                                        to={item.url || "#"}
-                                        className="inline-flex items-center gap-1"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                )}
-                            </BreadcrumbLink>
+                        <Fragment key={item.title}>
+                            <BreadcrumbItem>
+                                <BreadcrumbLink asChild={!isLast}>
+                                    {isLast ? (
+                                        <span className="inline-flex items-center gap-1 font-medium text-foreground">
+                                            {item.title}
+                                        </span>
+                                    ) : (
+                                        <Link
+                                            to={item.url || "#"}
+                                            className="inline-flex items-center gap-1"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    )}
+                                </BreadcrumbLink>
+                            </BreadcrumbItem>
                             {!isLast && <BreadcrumbSeparator />}
-                        </BreadcrumbItem>
+                        </Fragment>
                     );
                 })}
             </BreadcrumbList>

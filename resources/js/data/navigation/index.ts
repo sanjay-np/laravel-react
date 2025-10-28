@@ -10,7 +10,7 @@ export const mainNavItems: TMainNav[] = [
     {
         hasChildren: false,
         title: 'Invoice',
-        url: '/dashboard',
+        url: '/#',
         icon: 'InboxIcon',
     },
     {
@@ -43,15 +43,15 @@ export const mainNavItems: TMainNav[] = [
                 subItems: [
                     {
                         title: 'Rostering',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'TimeSheets',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'Vaccant Shifts',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                 ],
             },
@@ -64,32 +64,32 @@ export const mainNavItems: TMainNav[] = [
             {
                 isCollapsible: false,
                 title: 'Manage Users',
-                url: '/hr',
+                url: '/#',
                 icon: 'UsersIcon',
             },
             {
                 isCollapsible: false,
                 title: 'Staff Availability',
-                url: '/hr',
+                url: '/#',
                 icon: 'ArrowLeftRightIcon',
             },
             {
                 isCollapsible: false,
                 title: 'Payroll',
-                url: '/hr',
+                url: '/#',
                 icon: 'WalletMinimalIcon',
             },
 
             {
                 isCollapsible: false,
                 title: 'Documents',
-                url: '/hr',
+                url: '/#',
                 icon: 'FileTextIcon',
             },
             {
                 isCollapsible: false,
                 title: 'Contacts',
-                url: '/hr',
+                url: '/#',
                 icon: 'MessagesSquareIcon',
             },
         ],
@@ -105,47 +105,47 @@ export const mainNavItems: TMainNav[] = [
                 subItems: [
                     {
                         title: 'Finances',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'Staff Claims',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'HCP Claims',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'NDIS Claims',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'Travel Claims with Client',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                     {
                         title: 'Travel Claims in Between',
-                        url: '/scheduler',
+                        url: '/#',
                     },
                 ],
             },
             {
                 isCollapsible: false,
                 title: 'Suppliers',
-                url: '/hr',
+                url: '/#',
                 icon: 'PackageIcon',
             },
             {
                 isCollapsible: false,
                 title: 'Prospects',
-                url: '/hr',
+                url: '/#',
                 icon: 'MegaphoneIcon',
             },
 
             {
                 isCollapsible: false,
                 title: 'Reports',
-                url: '/hr',
+                url: '/#',
                 icon: 'ChartLineIcon',
             },
         ],

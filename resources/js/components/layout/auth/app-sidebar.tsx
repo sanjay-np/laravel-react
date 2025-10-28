@@ -2,22 +2,12 @@
 import {
     Sidebar,
     SidebarContent,
-    SidebarFooter,
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { NavUser } from "./nav-user"
 import { SidebarHeaderContent } from "@/components/layout/auth/sidebar-header-content"
 import { mainNavItems } from "@/data/navigation"
 import { NavMain } from "@/components/layout/auth/nav-main"
-
-const data = {
-    user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
-    },
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
@@ -34,9 +24,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarContent>
                 <NavMain items={mainNavItems} />
             </SidebarContent>
-            <SidebarFooter>
-                <NavUser user={data.user} />
-            </SidebarFooter>
             <SidebarRail />
         </Sidebar>
     )

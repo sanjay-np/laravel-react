@@ -2,7 +2,6 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -12,13 +11,13 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
-import Link from "@/components/link";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
+import Link from "@/components/app/link";
 import { Icon } from "@/components/ui/icon";
-
-import { cn } from "@/lib/utils";
 
 import { signInSchema } from "@/data/validator";
 import { typeLoginRequestData, typeLoginResponseData } from "@/data/types/generated";
+import { cn } from "@/lib/utils";
 
 const Index = () => {
 
@@ -71,20 +70,21 @@ const Index = () => {
                                                         <FormLabel>Email address</FormLabel>
                                                     </div>
                                                     <FormControl>
-                                                        <Input
-                                                            placeholder="user@example.com"
-                                                            className={cn(
-                                                                "rounded-sm focus-visible:ring-0 shadow-none",
-                                                                {
-                                                                    "border-red-500 ring-red-500": form.formState.errors.email,
-                                                                }
-                                                            )}
-                                                            {...field}
-                                                            iconProps={{
-                                                                icon: "User2Icon",
-                                                                iconPositon: "left"
-                                                            }}
-                                                        />
+                                                        <InputGroup>
+                                                            <InputGroupInput
+                                                                placeholder="username@email.com..."
+                                                                className={cn(
+                                                                    "rounded-xs focus-visible:ring-0 shadow-none",
+                                                                    {
+                                                                        "border-red-500 ring-red-500": form.formState.errors.email,
+                                                                    }
+                                                                )}
+                                                                {...field}
+                                                            />
+                                                            <InputGroupAddon>
+                                                                <Icon name="UserRoundIcon" />
+                                                            </InputGroupAddon>
+                                                        </InputGroup>
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
@@ -102,21 +102,23 @@ const Index = () => {
                                                         </Link>
                                                     </div>
                                                     <FormControl>
-                                                        <Input
-                                                            type="password"
-                                                            placeholder="••••••••"
-                                                            className={cn(
-                                                                "rounded-sm focus-visible:ring-0 shadow-none",
-                                                                {
-                                                                    "border-red-500 ring-red-500": form.formState.errors.password,
-                                                                }
-                                                            )}
-                                                            {...field}
-                                                            iconProps={{
-                                                                icon: "LockIcon",
-                                                                iconPositon: "left"
-                                                            }}
-                                                        />
+                                                        <InputGroup>
+                                                            <InputGroupInput
+                                                                type="password"
+                                                                placeholder="********"
+                                                                className={cn(
+                                                                    "rounded-xs focus-visible:ring-0 shadow-none",
+                                                                    {
+                                                                        "border-red-500 ring-red-500": form.formState.errors.email,
+                                                                    }
+                                                                )}
+                                                                {...field}
+                                                            />
+                                                            <InputGroupAddon>
+                                                                <Icon name="LockIcon" />
+                                                            </InputGroupAddon>
+                                                        </InputGroup>
+
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>

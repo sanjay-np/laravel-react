@@ -22,7 +22,7 @@ export function SidebarHeaderContent({ header }: SidebarHeaderProps) {
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                     <div className="">
-                        <img src={header.logo} className="size-10" />
+                        <img src={header.logo} className="size-8" />
                     </div>
                     <div className="grid flex-1 text-left text-lg leading-tight">
                         <span className="truncate font-bold">{header.name}</span>

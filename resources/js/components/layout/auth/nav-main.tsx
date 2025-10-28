@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/sidebar"
 import { TMainNav } from "@/data/types"
 import { Icon } from "@/components/ui/icon"
-import Link from "@/components/link"
+import Link from "@/components/app/link"
 
 export function NavMain({ items }: { items: TMainNav[] }) {
 
@@ -76,8 +76,8 @@ export function NavMain({ items }: { items: TMainNav[] }) {
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                             <SidebarMenuSub>
-                                {subItems?.map((subItem) => (
-                                    <SidebarMenuSubItem key={subItem.url}>
+                                {subItems?.map((subItem, index) => (
+                                    <SidebarMenuSubItem key={index}>
                                         <SidebarMenuSubButton
                                             asChild
                                             className="hover:bg-gray-200"
@@ -104,16 +104,17 @@ export function NavMain({ items }: { items: TMainNav[] }) {
                     {menu.hasChildren ? (
                         <div className="py-1.5">
                             <SidebarGroupLabel>{menu.label}</SidebarGroupLabel>
-                            {menu.items.map((menuItem) =>
+                            {menu.items.map((menuItem, index) =>
                                 menuItem.isCollapsible ? (
                                     <CollapsibleMenu
-                                        key={menuItem.label}
+                                        key={index}
                                         label={menuItem.label}
                                         icon={menuItem.icon}
                                         subItems={menuItem.subItems}
                                     />
                                 ) : (
                                     <NonCollapsibleMenu
+                                        key={index}
                                         url={menuItem.url}
                                         title={menuItem.title}
                                         icon={menuItem.icon}
@@ -123,6 +124,7 @@ export function NavMain({ items }: { items: TMainNav[] }) {
                         </div>
                     ) : (
                         <NonCollapsibleMenu
+                            key={index}
                             url={menu.url}
                             title={menu.title}
                             icon={menu.icon}
